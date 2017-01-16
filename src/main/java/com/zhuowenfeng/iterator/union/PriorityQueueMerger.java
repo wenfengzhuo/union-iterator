@@ -10,7 +10,12 @@ import java.util.*;
  */
 public class PriorityQueueMerger<T extends Comparable<T>> implements Merger<T> {
 
-
+  /**
+   * Merge multiple iterators using priority queue (heap)
+   * @param iterators
+   * @return
+   */
+  @Override
   public Iterator<T> union(List<PeekingIterator<T>> iterators) {
     List<T> res = new ArrayList<T>();
 

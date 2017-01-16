@@ -14,6 +14,9 @@ import java.util.concurrent.*;
  */
 public class ParallelMerger<T extends Comparable<T>> extends DivideAndConquerMerger<T> {
 
+  /**
+   * A thread pool to serve threads during computation
+   */
   private ExecutorService executorService = Executors.newFixedThreadPool(16);
 
   @Override

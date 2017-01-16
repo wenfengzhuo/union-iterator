@@ -11,11 +11,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
+ * Provides general methods for testing
+ *
  * @author Wenfeng Zhuo (wz2366@columbia.edu)
  * @createAt 01-15-2017
  */
 public class MergerTest {
 
+  /**
+   * Basic test for different mergers
+   *
+   * @param merger
+   */
   public void basicTest(Merger<Tuple<Integer>> merger) {
     List<Tuple<Integer>> l0 = Arrays.asList(
         new Tuple<Integer>(1, 3, 4),
@@ -44,6 +51,17 @@ public class MergerTest {
     }
   }
 
+  /**
+   * Test mergers with given number of iterators, tuples in each iterator, and
+   * keys in each tuple.
+   *
+   * @param M - number of iterators
+   * @param N - number of tuples in each iterator
+   * @param K - number of keys in each tuple
+   * @param verify - whether to verify result or not
+   * @param tupleGen - generate a tuple
+   * @param mergers - merges to test
+   */
   public void arbitraryTest(int M, int N, int K, boolean verify,
                             Function<List<Integer>, Tuple<Integer>> tupleGen,
                             Merger<Tuple<Integer>>... mergers) {
@@ -90,6 +108,12 @@ public class MergerTest {
     System.out.println();
   }
 
+  /**
+   * Get expected results. The simple way is to sort all tuples with built-in library.
+   *
+   * @param tuples
+   * @return
+   */
   private List<Tuple<Integer>> getExpected(List<List<Tuple<Integer>>> tuples) {
     List<Tuple<Integer>> res = new ArrayList<>();
     for (List<Tuple<Integer>> list : tuples) {

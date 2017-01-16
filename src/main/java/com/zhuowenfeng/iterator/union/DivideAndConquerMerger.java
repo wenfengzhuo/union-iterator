@@ -13,6 +13,12 @@ import java.util.List;
  */
 public class DivideAndConquerMerger<T extends Comparable<T>> implements Merger<T> {
 
+  /**
+   * Merge two sorted iterators into a single sorted iterator
+   * @param itr1
+   * @param itr2
+   * @return
+   */
   protected PeekingIterator<T> mergeIterator(PeekingIterator<T> itr1, PeekingIterator<T> itr2) {
     List<T> res = new ArrayList<T>();
     while (itr1.hasNext() && itr2.hasNext()) {
@@ -38,6 +44,14 @@ public class DivideAndConquerMerger<T extends Comparable<T>> implements Merger<T
     return union(peekingIterators, 0, peekingIterators.size() - 1);
   }
 
+  /**
+   * Use divide-and-conquer methodology to merge iterators
+   *
+   * @param peekingIterators
+   * @param s
+   * @param e
+   * @return
+   */
   protected PeekingIterator<T> union(List<PeekingIterator<T>> peekingIterators, int s, int e) {
     if (s == e) {
       return peekingIterators.get(s);

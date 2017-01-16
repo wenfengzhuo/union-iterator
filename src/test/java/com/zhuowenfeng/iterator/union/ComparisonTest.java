@@ -1,6 +1,8 @@
 package com.zhuowenfeng.iterator.union;
 
 /**
+ * The benchmark tests for all mergers.
+ *
  * @author Wenfeng Zhuo (wz2366@columbia.edu)
  * @createAt 01-15-2017
  */
